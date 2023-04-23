@@ -90,7 +90,7 @@ jobs:
         PKG_PREFIX=$(node -p "require('./package.json').name")
         PKG_NAME=$PKG_PREFIX-${{ github.sha }}.tgz
         mv ./$PKG_PREFIX-*.tgz ./$PKG_NAME
-        echo "::set-output name=package_name::$PKG_NAME"
+        echo "package_name=$PKG_NAME" >> GITHUB_OUTPUT
 
     - name: Upload package
       uses: actions/upload-artifact@v1.0.0
